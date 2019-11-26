@@ -12,15 +12,67 @@ var appData = {
     savings : false
 };
 
-let spendingPoint01 = prompt("Введите обязательную статью расходов в этом месяце");
-let spendingSum01 = prompt("Во сколько обойдется?");
-let spendingPoint02 = prompt("Введите обязательную статью расходов в этом месяце");
-let spendingSum02 = prompt("Во сколько обойдется?");
+// let spendingPoint01 = prompt("Введите обязательную статью расходов в этом месяце");
+// let spendingSum01 = prompt("Во сколько обойдется?");
+// let spendingPoint02 = prompt("Введите обязательную статью расходов в этом месяце");
+// let spendingSum02 = prompt("Во сколько обойдется?");
 
-appData.expenses.spendingPoint01 = spendingSum01;
-appData.expenses.spendingPoint02 = spendingSum02;
+// appData.expenses.spendingPoint01 = spendingSum01;
+// appData.expenses.spendingPoint02 = spendingSum02;
 
-console.log(appData.expenses);
-console.log(typeof appData.budget);
+// let i = 0;
+// while (i < 2 ) {
+//     let a = prompt("Введите обязательную статью расходов в этом месяце"),
+// b = prompt("Во сколько обойдется?");  
+//     if ( (typeof(a)) === 'string' && (typeof(a)) != null && (typeof(b)) === 'string' && (typeof(b)) != null &&
+// a != '' && b != '' && a.length < 50 ) {
+// console.log("done");
+// appData.expenses[a] = b;
+// i++;
+// }
+// }
 
-alert(appData.budget / 30);
+
+    // let i = 0; 
+    // do {
+        // let a = prompt("Введите обязательную статью расходов в этом месяце"),
+        // b = prompt("Во сколько обойдется?");
+    //     if ( (typeof(a)) === 'string' && (typeof(a)) != null && (typeof(b)) === 'string' && (typeof(b)) != null &&
+    //     a != '' && b != '' && a.length < 50 ) {
+    //     console.log("done");
+    //     appData.expenses[a] = b;
+    //     i++;  
+    // } while (i < 2 );
+    // }
+
+
+for (let i = 0; i < 2; i++ ) {
+    let a = prompt("Введите обязательную статью расходов в этом месяце"),
+    b = prompt("Во сколько обойдется?");
+
+if ( (typeof(a)) === 'string' && (typeof(a)) != null && (typeof(b)) === 'string' && (typeof(b)) != null &&
+a != '' && b != '' && a.length < 50 ) {
+    console.log("done");
+    appData.expenses[a] = b;
+} else  {                            
+    console.log ("bad result");
+    i--;
+}
+};
+
+
+appData.moneyPerDay = appData.budget / 30;
+// console.log(appData.expenses);
+// console.log(typeof appData.budget);
+
+alert("Ежедневный бюджет " + appData.moneyPerDay);
+
+if (appData.moneyPerDay < 100 ) {
+    console.log("Минимальный уровень достатка");
+} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000 ){
+    console.log("Средний уровень достатка");
+} else if (appData.moneyPerDay > 2000 ) {
+    console.log("Высокий уровень достатка");
+} else {
+    console.log("Произошла ошибка");
+}
